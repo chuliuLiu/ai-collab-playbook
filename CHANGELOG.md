@@ -24,5 +24,5 @@ All notable changes to this playbook are documented here. Format follows [Keep a
 - Seven project handbooks: blockly-linkdog, dsh-linkdog, dsh-linkdog-pet, linkdog-emotion-lab, linkdogdm, xiaozhi-oneclick, xiaozhi-server.
 - Five workflow skills (clarify → spec → tasks → implement → handoff) plus three cross-project skills (sync / verification / secrets).
 
-[1.1.0]: https://github.com/REPLACE_ME/ai-collab-playbook/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/REPLACE_ME/ai-collab-playbook/releases/tag/v1.0.0
+[1.1.0]: https://github.com/chuliuLiu/ai-collab-playbook/commit/6a0631880cb8ad825f866632f1e4663f5d72645c
+[1.0.0]: https://github.com/chuliuLiu/ai-collab-playbook/commit/6a0631880cb8ad825f866632f1e4663f5d72645c
