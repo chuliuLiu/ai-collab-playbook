@@ -21,7 +21,7 @@ A single source of truth for specs, conventions and handoffs across projects and
 |---|---|
 | `AGENTS.md` | Global rules, read by every agent at session start |
 | `specs/_template/` | Five templates, including `current-solution-statement.md` |
-| `skills/01`–`skills/09` | On-demand workflows: clarify → spec → tasks → implement → handoff, plus sync / verification / secrets / context efficiency |
+| `skills/01`–`skills/10` | On-demand workflows: clarify → spec → tasks → implement → handoff, plus sync / verification / secrets / context efficiency / AI commit review and merge |
 | `handoff/PROTOCOL.md` | Cross-agent handoff rules |
 | `handoff/HANDOFF.md` | Live state: what is done, what is next |
 | `llms.txt` | Agent-facing site entry index (optional, for web publishing) |
@@ -48,7 +48,7 @@ Every agent starts by reading `AGENTS.md` + `handoff/HANDOFF.md` (plus the proje
 6. Human does the last step: agents never start services or touch hardware → `skills/07`
 7. Static checks before runtime checks → `skills/07`
 8. Context hygiene is code hygiene → `skills/09`
-9. Deployment conventions repeat across projects → planned `skills/10`
+9. Deployment conventions repeat across projects → planned `skills/11`
 
 ## Repository
 
@@ -81,5 +81,6 @@ Details and full conventions live in the Chinese README — that is the maintain
 - [x] Templates, including current-solution statement
 - [x] Nine workflows
 - [x] Conventions distilled from seven projects (handbooks live in separate repos)
-- [ ] Deployment and ops conventions (`skills/10`)
+- [x] AI commit review and merge conventions (`skills/10`)
+- [ ] Deployment and ops conventions (`skills/11`)
 - [ ] First end-to-end dry run

@@ -2,6 +2,16 @@
 
 All notable changes to this playbook are documented here. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow semantic versioning.
 
+## [1.2.0] - 2026-11-27
+
+### Added
+- `skills/10-review-and-merge.md`: AI commit review gate — four-step review order (scope → intent → tests → behavior), AI-specific red flags, merge decision table, conflict priority, accountability record.
+- `AGENTS.md` rule 8: merge gate (human decides, AI self-report is not evidence).
+
+### Changed
+- Repo published to `chuliuLiu/ai-collab-playbook` (Public, `main`); READMEs replaced decision-stage sections with current repository state.
+- Fixed stale statements: `llms.txt` no longer says Private; HANDOFF reflects shipped state; removed `docs/` reference that does not exist.
+
 ## [1.1.0] - 2026-11-27
 
 ### Added
@@ -24,5 +34,6 @@ All notable changes to this playbook are documented here. Format follows [Keep a
 - Seven project handbooks: blockly-linkdog, dsh-linkdog, dsh-linkdog-pet, linkdog-emotion-lab, linkdogdm, xiaozhi-oneclick, xiaozhi-server.
 - Five workflow skills (clarify → spec → tasks → implement → handoff) plus three cross-project skills (sync / verification / secrets).
 
+[1.2.0]: https://github.com/chuliuLiu/ai-collab-playbook/compare/6a06318...HEAD
 [1.1.0]: https://github.com/chuliuLiu/ai-collab-playbook/commit/6a0631880cb8ad825f866632f1e4663f5d72645c
 [1.0.0]: https://github.com/chuliuLiu/ai-collab-playbook/commit/6a0631880cb8ad825f866632f1e4663f5d72645c

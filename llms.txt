@@ -1,6 +1,6 @@
 # AI Collaboration Playbook
 
-> Cross-project, cross-agent spec and handoff hub. Agents with isolated contexts collaborate through repo files, not chat memory. Private repository — sanitize before public release.
+> Cross-project, cross-agent spec and handoff hub. Agents with isolated contexts collaborate through repo files, not chat memory. Public repository containing the playbook only — no project data or secrets.
 
 - [Chinese main README](README.md)
 - [English front door](README.en.md)
@@ -27,6 +27,7 @@
 - [07 Verification layers](skills/07-verification-layers.md)
 - [08 Config and secrets](skills/08-config-secrets.md)
 - [09 Context and token efficiency](skills/09-context-token-efficiency.md)
+- [10 AI commit review and merge](skills/10-review-and-merge.md)
 
 ## Handoff
 
