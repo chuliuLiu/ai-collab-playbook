@@ -50,6 +50,15 @@ Every agent starts by reading `AGENTS.md` + `handoff/HANDOFF.md` (plus the proje
 8. Context hygiene is code hygiene → `skills/09`
 9. Deployment conventions repeat across projects → planned `skills/10`
 
+## Repository
+
+- **URL**: `https://github.com/chuliuLiu/ai-collab-playbook`
+- **Default branch**: `main`
+- **Visibility**: Public (playbook only, no project-sensitive data)
+- **CI**: every push checks kebab-case filenames, resolvable relative links, and that `projects/` stays untracked
+
+New agents: clone → read `AGENTS.md` + `handoff/HANDOFF.md` → follow `skills/` → update `HANDOFF.md` and commit.
+
 ## Conventions used in this repo
 
 - Lowercase kebab-case for all file and directory names; ASCII paths only.
@@ -59,10 +68,10 @@ Every agent starts by reading `AGENTS.md` + `handoff/HANDOFF.md` (plus the proje
 
 ## Before publishing
 
-- [ ] `git ls-files projects/` returns nothing.
+- [ ] `git ls-files projects/` returns nothing (CI also enforces this).
 - [ ] Confirm no keys, tokens, customer data or private chat logs are present.
-- [ ] Add a LICENSE if needed.
 - [ ] Language links in both READMEs still resolve; Chinese version wins on conflict.
+- [ ] LICENSE type decided (none added yet).
 
 Details and full conventions live in the Chinese README — that is the maintained source of truth. This English page is a concise front door; when the two diverge, the Chinese version wins.
 

@@ -78,34 +78,21 @@ WorkBuddy（文档 / 验收 / 规范沉淀）──读代码与 commit ──▶
 
 每个 Agent 开工第一步：读 `AGENTS.md` + `handoff/HANDOFF.md`（项目仓库再读该项目的现场手册）；完成后更新 `HANDOFF.md` 并提交。
 
-## 平台选择
+## 仓库
 
-- **Gitee**：国内访问快、私有仓库免费，适合私密项目；生态与 GitHub Actions 不互通。
-- **GitHub**：Agent 生态兼容最好（AGENTS.md / Spec Kit / skills 都原生支持），Actions 可直接跑校验；国内需稳定网络。
-- 建议：规范仓库本身放 GitHub（要吃生态），项目源码各按现状。
+- **地址**：`https://github.com/chuliuLiu/ai-collab-playbook`
+- **默认分支**：`main`
+- **可见性**：Public（仓库内只有规范本体，无项目敏感信息）
+- **CI**：每次 push 自动校验三项——文件名全小写 kebab-case、Markdown 相对链接可解析、`projects/` 未被追踪
 
-## 推送到 GitHub
-
-仓库名 `ai-collab-playbook`，默认分支 `main`，可设为 **Public**（仓库内只有规范本体，无项目敏感信息）。
-
-```bash
-cd "AI协作规范仓库"
-git init -b main
-git add .
-git commit -m "chore: 初始化 AI 协作规范仓库 v1.1.0"
-git remote add origin git@github.com:<你的用户名>/ai-collab-playbook.git
-git push -u origin main
-```
-
-推送后 CI 自动跑三项校验：文件名全小写 kebab-case、Markdown 相对链接可解析、`projects/` 未被追踪。本地已校验通过（0 断链、0 违规命名）。
+新 Agent 接入：克隆仓库 → 读 `AGENTS.md` + `handoff/HANDOFF.md` → 按 `skills/` 执行 → 更新 `HANDOFF.md` 并提交。
 
 ## 发布前检查清单
 
-- [ ] `git status` 确认 `projects/` 未出现在待提交列表
-- [ ] `git ls-files projects/` 输出为空
-- [ ] 确认无密钥、token、真实账号、客户信息、私有聊天记录
-- [ ] 两版 README 互链仍有效；冲突时以中文版为准
-- [ ] 需要时添加 LICENSE
+- [ ] `git ls-files projects/` 输出为空（CI 也会拦截）
+- [ ] 无密钥、token、真实账号、客户信息、私有聊天记录
+- [ ] 两版 README 互链有效；冲突时以中文版为准
+- [ ] LICENSE 授权类型已定（当前未添加）
 
 ## 状态
 
