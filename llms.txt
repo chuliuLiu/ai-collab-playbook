@@ -1,0 +1,38 @@
+# AI Collaboration Playbook
+
+> Cross-project, cross-agent spec and handoff hub. Agents with isolated contexts collaborate through repo files, not chat memory. Private repository — sanitize before public release.
+
+- [Chinese main README](README.md)
+- [English front door](README.en.md)
+- [Global agent rules](AGENTS.md)
+- [Changelog](CHANGELOG.md)
+- [Contributing conventions](CONTRIBUTING.md)
+
+## Specs
+
+- [Current solution statement template](specs/_template/current-solution-statement.md)
+- [Spec template](specs/_template/spec.md)
+- [Plan template](specs/_template/plan.md)
+- [Tasks template](specs/_template/tasks.md)
+- [Decision record template](specs/_template/decision.md)
+
+## Skills
+
+- [01 Requirements clarification](skills/01-requirements-clarification.md)
+- [02 Spec writing](skills/02-spec-writing.md)
+- [03 Task breakdown](skills/03-task-breakdown.md)
+- [04 Implementation and self-check](skills/04-implementation-self-check.md)
+- [05 Handoff and retrospective](skills/05-handoff-retrospective.md)
+- [06 Cross-project sync SOP](skills/06-cross-project-sync.md)
+- [07 Verification layers](skills/07-verification-layers.md)
+- [08 Config and secrets](skills/08-config-secrets.md)
+- [09 Context and token efficiency](skills/09-context-token-efficiency.md)
+
+## Handoff
+
+- [Protocol](handoff/PROTOCOL.md)
+- [Current state](handoff/HANDOFF.md)
+
+## Project handbooks
+
+Not included in this repository. Project handbooks are gitignored and shipped as separate project repositories.

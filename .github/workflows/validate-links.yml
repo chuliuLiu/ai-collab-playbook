@@ -1,0 +1,67 @@
+name: Validate links and naming
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check filenames are lowercase kebab-case ASCII
+        run: |
+          python3 - <<'PY'
+          import pathlib, sys
+          root = pathlib.Path('.')
+          allowed = {'AGENTS.md','README.md','README.en.md','CHANGELOG.md',
+                     'CONTRIBUTING.md','llms.txt','PROTOCOL.md','HANDOFF.md'}
+          bad = []
+          for f in root.rglob('*'):
+              if not f.is_file() or '.git' in f.parts:
+                  continue
+              if f.name in allowed:
+                  continue
+              if any(ord(c) > 127 or c.isupper() for c in f.name):
+                  bad.append(str(f))
+          for line in bad:
+              print('NON-ASCII OR UPPERCASE:', line)
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Check relative markdown links resolve
+        run: |
+          python3 - <<'PY'
+          import pathlib, re, sys
+          root = pathlib.Path('.')
+          bad = []
+          for md in root.rglob('*.md'):
+              text = md.read_text(encoding='utf-8')
+              for target in re.findall(r'\[[^\]]*\]\(([^)]+)\)', text):
+                  if target.startswith(('http://', 'https://', '#', 'mailto:')):
+                      continue
+                  path = target.split('#')[0]
+                  if not path:
+                      continue
+                  resolved = (md.parent / path).resolve()
+                  if not resolved.exists():
+                      bad.append(f'{md}: broken link -> {target}')
+          for line in bad:
+              print(line)
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Ensure project handbooks are not tracked
+        run: |
+          if git ls-files projects/ | grep -q .; then
+            echo "ERROR: projects/ must not be tracked in this repository"
+            git ls-files projects/
+            exit 1
+          fi
+          grep -qxF 'projects/' .gitignore
+
+      - name: Ensure handoff state exists
+        run: test -s handoff/HANDOFF.md

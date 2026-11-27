@@ -1,0 +1,29 @@
+# Project handbooks ship as separate repositories, never in this one
+projects/
+
+# Local state and private data
+.workbuddy/
+*.local.md
+*.env
+.env.*
+secrets.json
+config_secret.json
+*.key
+*.pem
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
