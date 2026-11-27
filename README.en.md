@@ -22,7 +22,7 @@ A reference standard for a single AI agent working on a project: read it before 
 |---|---|
 | `AGENTS.md` | Global rules, read by every agent at session start |
 | `specs/_template/` | Five templates, including `current-solution-statement.md` |
-| `skills/01`–`skills/10` | On-demand workflows: clarify → spec → tasks → implement → retrospective, plus sync / verification / secrets / context efficiency / AI commit review and merge |
+| `skills/01`–`skills/11` | On-demand workflows: clarify → spec → tasks → implement → retrospective, plus sync / verification / secrets / context efficiency / AI commit review and merge / deployment and ops |
 | `llms.txt` | Agent-facing site entry index (optional, for web publishing) |
 
 `projects/` holds local project handbooks. It is gitignored and shipped as separate repositories — never committed here.
@@ -47,7 +47,7 @@ An agent reads `AGENTS.md` plus the project handbook (kept in that project's own
 6. Human does the last step: agents never start services or touch hardware → `skills/07`
 7. Static checks before runtime checks → `skills/07`
 8. Context hygiene is code hygiene → `skills/09`
-9. Deployment conventions repeat across projects → planned `skills/11`
+9. Deployment conventions repeat across projects → `skills/11`
 
 ## Repository
 
@@ -70,17 +70,18 @@ Usage: clone → read `AGENTS.md` before starting → follow `skills/` for execu
 - [ ] `git ls-files projects/` returns nothing (CI also enforces this).
 - [ ] Confirm no keys, tokens, customer data or private chat logs are present.
 - [ ] Language links in both READMEs still resolve; Chinese version wins on conflict.
-- [ ] LICENSE type decided (none added yet).
+- [ ] LICENSE type decided and added to the repo (as appropriate).
 
 Details and full conventions live in the Chinese README — that is the maintained source of truth. This English page is a concise front door; when the two diverge, the Chinese version wins.
 
-## Status
+## Adopt in your project
 
-- [x] Global rules and layout
-- [x] Templates, including current-solution statement
-- [x] Nine workflows
-- [x] Conventions distilled from seven projects (handbooks live in separate repos)
-- [x] AI commit review and merge conventions (`skills/10`)
-- [x] Scope narrowed to single-agent reference standard; multi-agent handoff material removed to a separate project
-- [ ] Deployment and ops conventions (`skills/11`)
-- [ ] First end-to-end dry run
+This repo is a reference standard, not a place to store your project state.
+
+1. Clone the repo, or copy `AGENTS.md` and `specs/_template/` into your project root.
+2. Keep the thick project handbook in your own project repository; only thin global rules stay here.
+3. Before coding, use `skills/01` → `skills/02` → `skills/03` to settle requirements, spec and tasks. A human approves before implementation.
+4. Implement and close out with `skills/04` → `skills/07` → `skills/05`; use `skills/08` for config/secrets and `skills/11` for deployment.
+5. Pass every AI-produced commit through the gate in `skills/10`. A human merges and signs off on real-machine verification.
+
+To get started quickly: copy `AGENTS.md` and `specs/_template/`, then fill in your first Current Solution Statement.

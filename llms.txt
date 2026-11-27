@@ -28,6 +28,7 @@
 - [08 Config and secrets](skills/08-config-secrets.md)
 - [09 Context and token efficiency](skills/09-context-token-efficiency.md)
 - [10 AI commit review and merge](skills/10-review-and-merge.md)
+- [11 Deployment and ops](skills/11-deployment-ops.md)
 
 ## Project handbooks
 

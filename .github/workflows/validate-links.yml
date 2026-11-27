@@ -32,26 +32,40 @@ jobs:
           sys.exit(1 if bad else 0)
           PY
 
-      - name: Check relative markdown links resolve
+      - name: Check relative links resolve (markdown and llms.txt)
         run: |
           python3 - <<'PY'
           import pathlib, re, sys
           root = pathlib.Path('.')
+          docs = list(root.rglob('*.md')) + [root / 'llms.txt']
           bad = []
-          for md in root.rglob('*.md'):
-              text = md.read_text(encoding='utf-8')
+          for doc in docs:
+              text = doc.read_text(encoding='utf-8')
               for target in re.findall(r'\[[^\]]*\]\(([^)]+)\)', text):
                   if target.startswith(('http://', 'https://', '#', 'mailto:')):
                       continue
                   path = target.split('#')[0]
                   if not path:
                       continue
-                  resolved = (md.parent / path).resolve()
+                  resolved = (doc.parent / path).resolve()
                   if not resolved.exists():
-                      bad.append(f'{md}: broken link -> {target}')
+                      bad.append(f'{doc}: broken link -> {target}')
           for line in bad:
               print(line)
           sys.exit(1 if bad else 0)
+          PY
+
+      - name: Ensure every skill is listed in llms.txt
+        run: |
+          python3 - <<'PY'
+          import pathlib, sys
+          root = pathlib.Path('.')
+          index = (root / 'llms.txt').read_text(encoding='utf-8')
+          missing = [f.name for f in sorted((root / 'skills').glob('*.md'))
+                     if f.name not in index]
+          for name in missing:
+              print('MISSING FROM llms.txt:', name)
+          sys.exit(1 if missing else 0)
           PY
 
       - name: Ensure project handbooks are not tracked

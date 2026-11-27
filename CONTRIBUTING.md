@@ -4,7 +4,7 @@
 
 ## 改什么
 
-- 新增规范：先在 `skills/` 加文件，再挂到 `README.md` 索引和必要的 `AGENTS.md` 条目。
+- 新增规范：先在 `skills/` 加文件，再挂到 `README.md`、`llms.txt` 索引和必要的 `AGENTS.md` 条目（CI 会校验索引完整性）。
 - 改已有规范：更新正文 + `CHANGELOG.md`；如果改变了行为约束，版本号递增。
 - 项目现场手册不属于本仓库（`projects/` 已 gitignore），在各自项目仓库维护；只写可验证的现状，不写计划或猜测。
 
@@ -23,7 +23,7 @@
 ## 版本
 
 - 语义化版本：约束变化升 minor，结构/破坏性调整升 major，措辞修正升 patch。
-- 每次改完在 `CHANGELOG.md` 记一条；`skills/05-retrospective.md` 里的版本路线图同步。
+- 每次改完在 `CHANGELOG.md` 记一条；版本历史只维护在这一处，不在 skill 或 README 中复述进度。
 
 ## 发布前
 

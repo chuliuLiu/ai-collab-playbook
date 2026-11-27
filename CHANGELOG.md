@@ -2,6 +2,18 @@
 
 All notable changes to this playbook are documented here. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow semantic versioning.
 
+## [1.3.0] - 2026-11-27
+
+### Added
+- `skills/11-deployment-ops.md`: deployment and ops conventions — backup before change, migration baseline alignment, systemd / Nginx / subpath rules, human-only execution gate, log anchors, rollback path.
+- `AGENTS.md` rule 9: deployment and ops pointer.
+- Both READMEs: "Adopt in your project" / "在自己的项目中落地" — forward guidance for applying the playbook to a project, replacing progress reporting.
+- CI: link check now covers `llms.txt`; new check ensures every skill is listed in the index.
+
+### Changed
+- Removed progress reporting from the playbook body: `## 状态` / `## Status`, the version roadmap in `skills/05`, and the roadmap-sync rule in `CONTRIBUTING.md`. Release history is maintained only in this changelog.
+- Deployment conventions are now recorded in `skills/11` instead of being marked as planned in the READMEs.
+
 ## [1.2.0] - 2026-11-27
 
 ### Added
@@ -35,6 +47,7 @@ All notable changes to this playbook are documented here. Format follows [Keep a
 - Seven project handbooks: blockly-linkdog, dsh-linkdog, dsh-linkdog-pet, linkdog-emotion-lab, linkdogdm, xiaozhi-oneclick, xiaozhi-server.
 - Five workflow skills (clarify → spec → tasks → implement → handoff) plus three cross-project skills (sync / verification / secrets).
 
-[1.2.0]: https://github.com/chuliuLiu/ai-collab-playbook/compare/6a06318...HEAD
+[1.3.0]: https://github.com/chuliuLiu/ai-collab-playbook/compare/ff016de...HEAD
+[1.2.0]: https://github.com/chuliuLiu/ai-collab-playbook/compare/6a06318...ff016de
 [1.1.0]: https://github.com/chuliuLiu/ai-collab-playbook/commit/6a0631880cb8ad825f866632f1e4663f5d72645c
 [1.0.0]: https://github.com/chuliuLiu/ai-collab-playbook/commit/6a0631880cb8ad825f866632f1e4663f5d72645c

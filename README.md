@@ -40,7 +40,8 @@
 │   ├── 07-verification-layers.md     静态 / 文档 / 真机三层
 │   ├── 08-config-secrets.md          单一事实源 + 分层 + fail-closed
 │   ├── 09-context-token-efficiency.md 一任务一会话 + 精准读 + 缓存保护
-│   └── 10-review-and-merge.md         AI commit 评审与合并闸门
+│   ├── 10-review-and-merge.md         AI commit 评审与合并闸门
+│   └── 11-deployment-ops.md           部署与运维（备份 / 迁移 / 启停 / 回滚）
 
 [projects/]                           项目现场手册 — 本地保留，已 gitignore，独立项目另传
 ```
@@ -57,7 +58,7 @@
 6. 人做最后一步：AI 不启服务、不做真机 → `skills/07`
 7. 静态验证优先于运行时验证 → `skills/07`
 8. 上下文卫生等同代码卫生：一任务一会话、精准读、保护缓存 → `skills/09`
-9. 部署约定高度重复（宝塔/子路径/端口/crontab）→ 待补 `skills/11`
+9. 部署约定高度重复（宝塔/子路径/端口/crontab）→ `skills/11`
 
 ## 使用流程
 
@@ -83,15 +84,16 @@ Agent 开工时读 `AGENTS.md` + 对应项目的现场手册（后者在项目�
 - [ ] `git ls-files projects/` 输出为空（CI 也会拦截）
 - [ ] 无密钥、token、真实账号、客户信息、私有聊天记录
 - [ ] 两版 README 互链有效；冲突时以中文版为准
-- [ ] LICENSE 授权类型已定（当前未添加）
+- [ ] LICENSE 授权类型已确定并加入仓库（按项目需要选择）
 
-## 状态
+## 在自己的项目中落地
 
-- [x] 全局规则与目录骨架
-- [x] 规格 / 决策 / 当前方案声明模板
-- [x] 十个 skills 工作流（09 = Token 效率，10 = commit 评审与合并）
-- [x] 七项目共性已提炼为规范（现场手册本体不入库，独立项目另传）
-- [x] GitHub 已上线：英文门面 / 变更日志 / 贡献约定 / llms.txt / CI 校验 / kebab-case / projects 忽略
-- [x] AI commit 评审与合并规范（skills/10）
-- [ ] 部署与运维规范（skills/11）
-- [ ] 首个实操项目验证
+本仓库是参照标准，不替任何项目保存现场。把它用起来的最小路径：
+
+1. 克隆仓库，或只把 `AGENTS.md` 与 `specs/_template/` 复制到项目根目录。
+2. 在项目自己的仓库写现场手册（厚规则）；本仓库只保留薄规则。
+3. 开工前按 `skills/01` → `skills/02` → `skills/03` 定清需求、规格、任务，人拍板后再实现。
+4. 实现与收口按 `skills/04` → `skills/07` → `skills/05` 执行；涉及配置 / 密钥按 `skills/08`，部署按 `skills/11`。
+5. AI 产出的 commit 按 `skills/10` 过合并闸门；合并与真机验收由人完成。
+
+只想起步：复制 `AGENTS.md` 与 `specs/_template/`，按模板填第一份《当前方案声明》即可。
