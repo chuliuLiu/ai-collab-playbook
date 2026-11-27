@@ -1,6 +1,6 @@
 # AI Collaboration Playbook
 
-> Cross-project, cross-agent spec and handoff hub. Agents with isolated contexts collaborate through repo files, not chat memory. Public repository containing the playbook only — no project data or secrets.
+> Reference standard for a single AI agent working on a project: conventions, specs, workflows and templates. Public repository containing the playbook only — no project data or secrets.
 
 - [Chinese main README](README.md)
 - [English front door](README.en.md)
@@ -22,17 +22,12 @@
 - [02 Spec writing](skills/02-spec-writing.md)
 - [03 Task breakdown](skills/03-task-breakdown.md)
 - [04 Implementation and self-check](skills/04-implementation-self-check.md)
-- [05 Handoff and retrospective](skills/05-handoff-retrospective.md)
+- [05 Retrospective](skills/05-retrospective.md)
 - [06 Cross-project sync SOP](skills/06-cross-project-sync.md)
 - [07 Verification layers](skills/07-verification-layers.md)
 - [08 Config and secrets](skills/08-config-secrets.md)
 - [09 Context and token efficiency](skills/09-context-token-efficiency.md)
 - [10 AI commit review and merge](skills/10-review-and-merge.md)
-
-## Handoff
-
-- [Protocol](handoff/PROTOCOL.md)
-- [Current state](handoff/HANDOFF.md)
 
 ## Project handbooks
 

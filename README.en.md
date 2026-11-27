@@ -2,18 +2,19 @@
 
 [简体中文](README.md) · [English](README.en.md)
 
-A single source of truth for specs, conventions and handoffs across projects and AI agents. The goal: agents with isolated contexts (DSH, Trae, WorkBuddy) collaborate through **files in the repo**, not through chat memory.
+A reference standard for a single AI agent working on a project: read it before starting, follow it while coding, self-check against it when closing out. Stable conventions only — no live project state.
 
 > **Scope**: This repo contains the playbook only and is safe to make public. Project handbooks live in `projects/`, are gitignored, and ship as separate repositories.
 
 ## How it works
 
-1. **The repo is the only shared brain.** No agent shares memory. Every handoff is a commit.
+1. **The repo is a behavioral baseline.** It holds reusable conventions and templates only — no live project state.
 2. **Two rule layers.** Root `AGENTS.md` is thin global policy; thick project handbooks are maintained in each project's own repo, not here. Nearest wins.
 3. **Spec first.** No code before `spec.md` → `plan.md` → `tasks.md` is approved by a human.
 4. **Minimal diff.** Touch only what the task requires. No speculative refactors.
 5. **Verifiable done.** Every task has a self-check; unverified is not done.
 6. **Context is finite.** One task per session, precise reads, terse output, protect prompt cache. See `skills/09`.
+7. **Merging has a gate.** AI output is untrusted input; a human decides what merges. See `skills/10`.
 
 ## Layout
 
@@ -21,9 +22,7 @@ A single source of truth for specs, conventions and handoffs across projects and
 |---|---|
 | `AGENTS.md` | Global rules, read by every agent at session start |
 | `specs/_template/` | Five templates, including `current-solution-statement.md` |
-| `skills/01`–`skills/10` | On-demand workflows: clarify → spec → tasks → implement → handoff, plus sync / verification / secrets / context efficiency / AI commit review and merge |
-| `handoff/PROTOCOL.md` | Cross-agent handoff rules |
-| `handoff/HANDOFF.md` | Live state: what is done, what is next |
+| `skills/01`–`skills/10` | On-demand workflows: clarify → spec → tasks → implement → retrospective, plus sync / verification / secrets / context efficiency / AI commit review and merge |
 | `llms.txt` | Agent-facing site entry index (optional, for web publishing) |
 
 `projects/` holds local project handbooks. It is gitignored and shipped as separate repositories — never committed here.
@@ -31,12 +30,12 @@ A single source of truth for specs, conventions and handoffs across projects and
 ## Workflow
 
 ```
-DSH (research / architecture / spec)     → commit spec.md + plan.md
-Trae (coding / refactor / debug)         → read spec, write code, commit
-WorkBuddy (docs / verification / rules)  → read code and commits, commit
+Need → clarify criteria → agree structure
+     → set mechanisms (config / version / migration) → small steps with self-checks
+     → verify and record (change list + decisions)
 ```
 
-Every agent starts by reading `AGENTS.md` + `handoff/HANDOFF.md` (plus the project handbook when working in a project repo), and updates `HANDOFF.md` before committing.
+An agent reads `AGENTS.md` plus the project handbook (kept in that project's own repo), follows `skills/`, self-checks with `skills/07`, and passes the merge gate in `skills/10`. No project state lives here.
 
 ## Nine conventions distilled from real projects
 
@@ -57,7 +56,7 @@ Every agent starts by reading `AGENTS.md` + `handoff/HANDOFF.md` (plus the proje
 - **Visibility**: Public (playbook only, no project-sensitive data)
 - **CI**: every push checks kebab-case filenames, resolvable relative links, and that `projects/` stays untracked
 
-New agents: clone → read `AGENTS.md` + `handoff/HANDOFF.md` → follow `skills/` → update `HANDOFF.md` and commit.
+Usage: clone → read `AGENTS.md` before starting → follow `skills/` for execution and self-checks. This repo holds no project state; state belongs in each project's own repo.
 
 ## Conventions used in this repo
 
@@ -82,5 +81,6 @@ Details and full conventions live in the Chinese README — that is the maintain
 - [x] Nine workflows
 - [x] Conventions distilled from seven projects (handbooks live in separate repos)
 - [x] AI commit review and merge conventions (`skills/10`)
+- [x] Scope narrowed to single-agent reference standard; multi-agent handoff material removed to a separate project
 - [ ] Deployment and ops conventions (`skills/11`)
 - [ ] First end-to-end dry run

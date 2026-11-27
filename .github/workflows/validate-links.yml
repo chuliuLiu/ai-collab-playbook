@@ -18,7 +18,7 @@ jobs:
           import pathlib, sys
           root = pathlib.Path('.')
           allowed = {'AGENTS.md','README.md','README.en.md','CHANGELOG.md',
-                     'CONTRIBUTING.md','llms.txt','PROTOCOL.md','HANDOFF.md'}
+                     'CONTRIBUTING.md','llms.txt'}
           bad = []
           for f in root.rglob('*'):
               if not f.is_file() or '.git' in f.parts:
@@ -62,6 +62,3 @@ jobs:
             exit 1
           fi
           grep -qxF 'projects/' .gitignore
-
-      - name: Ensure handoff state exists
-        run: test -s handoff/HANDOFF.md

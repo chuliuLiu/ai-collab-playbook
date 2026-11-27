@@ -11,6 +11,7 @@ All notable changes to this playbook are documented here. Format follows [Keep a
 ### Changed
 - Repo published to `chuliuLiu/ai-collab-playbook` (Public, `main`); READMEs replaced decision-stage sections with current repository state.
 - Fixed stale statements: `llms.txt` no longer says Private; HANDOFF reflects shipped state; removed `docs/` reference that does not exist.
+- **Scope narrowed**: this repo is now the reference standard for a single agent advancing a project. Multi-agent handoff material (`handoff/`, agent-role workflow, tool-specific examples) removed to a separate research project. `skills/05` renamed to `05-retrospective.md`; CI handoff check removed.
 
 ## [1.1.0] - 2026-11-27
 

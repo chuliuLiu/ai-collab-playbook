@@ -17,13 +17,13 @@
 ## 提交
 
 - Conventional Commits：`<type>(<scope>): <做了什么>`，例如 `docs(skills): 增加上下文与 Token 效率规范`。
-- 一个阶段一个 commit，便于追溯是哪个 Agent 在哪一步改的。
+- 一个阶段一个 commit，便于追溯每一步改了什么、由谁验证。
 - 不要提交密钥、token、真实账号、客户信息、私有聊天记录。
 
 ## 版本
 
 - 语义化版本：约束变化升 minor，结构/破坏性调整升 major，措辞修正升 patch。
-- 每次改完在 `CHANGELOG.md` 记一条；`skills/05-handoff-retrospective.md` 里的版本路线图同步。
+- 每次改完在 `CHANGELOG.md` 记一条；`skills/05-retrospective.md` 里的版本路线图同步。
 
 ## 发布前
 
